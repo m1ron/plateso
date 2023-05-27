@@ -1,0 +1,78 @@
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  padding: 30px 0;
+  margin-top: auto;
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  line-height: 22px;
+  color: white;
+  background: #363636;
+  cursor: default;
+  @include media-breakpoint-down(md) {
+    text-align: center;
+  }
+  @include media-breakpoint-up(xl) {
+    padding: 48px 0 45px;
+  }
+
+  .container {
+    height: 100%;
+    position: relative;
+    @include media-breakpoint-up(md) {
+      > .row {flex-direction: row-reverse;}
+    }
+  }
+
+  .nav {
+    padding: 0;
+    margin: 0 -6px 16px;
+    list-style: none;
+    font-size: 14px;
+    line-height: 22px;
+    display: flex;
+    justify-content: space-around;
+    @include media-breakpoint-up(sm) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
+      justify-content: flex-end;
+      @include media-breakpoint-down(lg) {
+        font-size: 12px;
+        line-height: 22px;
+      }
+    }
+    @include media-breakpoint-up(xxl) {
+      margin-right: 4px;
+    }
+
+    li + li {
+      @include media-breakpoint-up(md) {
+        margin-left: 32px;
+      }
+      @include media-breakpoint-up(lg) {
+        margin-left: 44px;
+      }
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .copyright {
+    margin: 0;
+    @include media-breakpoint-up(lg) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @include media-breakpoint-up(xxl) {
+      margin-left: -5px;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+// ==========================================================================
+// VARIABLES
+// ========================================================================== */
+$min-width: 320px;
+
+// Media Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  min: 321px, // Min width
+  xss: 375px, // iPhone SE
+  xsm: 390px, // iPhone 14
+  xsl: 420px, // iPhone Plus/Max
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+// Paths
+$img: '../img';
+$fonts: '../fonts';
+
+// Fonts
+/** Poppins **/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+$font-default: 'Montserrat', sans-serif;
+
+// Colors
+$color-black: #363636;
+$color-olive: #3a3a3a;
+$color-yellow: #ec8f39;
+$color-blue: #1789d8;
+
+$color-blueish: #aeb4bd;
+$color-red: #f00;
+
+// Transition Settings
+$bezier: cubic-bezier(.645, .045, .355, 1);
+$easing: $bezier;
+$effect: .3s $easing;
+$effect-s: .2s ease-in-out;
+
+// SVG Icons
+$icon-check: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxMCIgZmlsbD0ibm9uZSI+PHBhdGggc3Ryb2tlPSIjZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0ibTEuNSA0LjUgMy41IDRMMTMgMSIvPjwvc3ZnPg==';
+$icon-checkmark: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMSI+PHBhdGggZmlsbD0iI2VmMjkyOSIgZD0ibTMyIDE1LjUtMy4wNzMgMi45MzMgMS40OSAzLjk2Ni00LjA1MiAxLjMxMi0uMzg5IDQuMjE2LTQuMjI0LS41NTgtMi4xOTIgMy42My0zLjU2LTIuMzMtMy41NjEgMi4zMy0yLjE5Mi0zLjYzMS00LjIyNC41NTgtLjM4OS00LjIxNi00LjA1Mi0xLjMxMiAxLjQ5MS0zLjk2Ni0zLjA3Mi0yLjkzMyAzLjA3My0yLjkzM0wxLjU4NCA4LjZsNC4wNTItMS4zMTIuMzg5LTQuMjE2IDQuMjI0LjU1OEwxMi40NDEgMGwzLjU2IDIuMzNMMTkuNTYyLjAwMWwyLjE5MiAzLjYzIDQuMjI0LS41NTguMzg5IDQuMjE2IDQuMDUyIDEuMzEyLTEuNDkxIDMuOTY2WiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0yNC41MDkgMTEuMTU1IDIyLjU3MSA5LjIzbC04Ljc0OCA4LjY5MS00LjM5My00LjM2NC0xLjkzNyAxLjkyNSA2LjMzIDYuMjg4WiIvPjwvc3ZnPg==';
+$icon-checkmark-white: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMSI+PHBhdGggZmlsbD0iI2ZmZiIgZD0ibTMyIDE1LjUtMy4wNzMgMi45MzMgMS40OSAzLjk2Ni00LjA1MiAxLjMxMi0uMzg5IDQuMjE2LTQuMjI0LS41NTgtMi4xOTIgMy42My0zLjU2LTIuMzMtMy41NjEgMi4zMy0yLjE5Mi0zLjYzMS00LjIyNC41NTgtLjM4OS00LjIxNi00LjA1Mi0xLjMxMiAxLjQ5MS0zLjk2Ni0zLjA3Mi0yLjkzMyAzLjA3My0yLjkzM0wxLjU4NCA4LjZsNC4wNTItMS4zMTIuMzg5LTQuMjE2IDQuMjI0LjU1OEwxMi40NDEgMGwzLjU2IDIuMzNMMTkuNTYyLjAwMWwyLjE5MiAzLjYzIDQuMjI0LS41NTguMzg5IDQuMjE2IDQuMDUyIDEuMzEyLTEuNDkxIDMuOTY2WiIvPjxwYXRoIGZpbGw9IiNlZjI5MjkiIGQ9Ik0yNC41MDkgMTEuMTU1IDIyLjU3MSA5LjIzbC04Ljc0OCA4LjY5MS00LjM5My00LjM2NC0xLjkzNyAxLjkyNSA2LjMzIDYuMjg4WiIvPjwvc3ZnPg==';
+
+// Mixins
+@mixin pseudo {content: '';display: block;overflow: hidden;}
+@mixin clearfix {content: '';display: table;clear: both;}
+@mixin user-select {-webkit-touch-callout: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
