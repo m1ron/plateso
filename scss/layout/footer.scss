@@ -46,7 +46,7 @@
         line-height: 22px;
       }
     }
-    @include media-breakpoint-up(xxl) {
+    @include media-breakpoint-up(xxxl) {
       margin-right: 4px;
     }
 
@@ -71,7 +71,7 @@
       font-size: 14px;
       line-height: 22px;
     }
-    @include media-breakpoint-up(xxl) {
+    @include media-breakpoint-up(xxxl) {
       margin-left: -5px;
     }
   }

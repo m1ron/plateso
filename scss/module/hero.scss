@@ -6,20 +6,34 @@
   position: relative;
   z-index: 1;
 
-  &::after {
+  &::after, &::before {
     @include pseudo;
     position: absolute;
     top: 0;
-    right: -14px;
+    right: -25px;
     bottom: 0;
-    left: -14px;
-    z-index: -1;
-    background: $color-blue;
+    left: -25px;
+    z-index: -2;
+    background: $color-blue no-repeat center left;
+    background-size: contain;
     @include media-breakpoint-up(xss) {
       width: 100vw;
       right: 0;
       left: 50%;
       transform: translateX(-50%);
+    }
+    @include media-breakpoint-up(xxxl) {
+      background-image: url('#{$img}/sides.png');
+    }
+  }
+  &::before {
+    display: none;
+    z-index: -1;
+    @include media-breakpoint-up(xxxl) {
+      display: block;
+      background-image: url('#{$img}/sides.png');
+      background-color: transparent;
+      transform: translateX(-50%) scaleX(-1);
     }
   }
 
@@ -70,11 +84,12 @@
   }
 
   h1 {
-    margin: 0 auto;
+    margin: 0 -10px;
     font-size: 28px;
     line-height: 38px;
     @include media-breakpoint-up(xss) {
       max-width: 420px;
+      margin: 0 auto;
       font-size: 34px;
       line-height: 44px;
     }
@@ -101,7 +116,7 @@
 
   &__image {
     padding: 0;
-    margin: 0 -14px;
+    margin: 0 -25px;
     position: relative;
     z-index: 3;
     @include media-breakpoint-up(lg) {
@@ -151,7 +166,7 @@
       bottom: 0;
       left: 0;
       z-index: 0;
-      background: url('#{$img}/bg.svg') no-repeat center 0;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzIzIiBoZWlnaHQ9Ijg1MSIgZmlsbD0ibm9uZSI+PGcgZmlsdGVyPSJ1cmwoI2EpIj48ZWxsaXBzZSBjeD0iNjYxLjE3IiBjeT0iNDE0LjgxMSIgZmlsbD0iIzNCQUFGOCIgcng9IjQ2MS4xNyIgcnk9IjIzNS44MTEiLz48L2c+PGRlZnM+PGZpbHRlciBpZD0iYSIgd2lkdGg9IjEzMjIuMzQiIGhlaWdodD0iODcxLjYyMiIgeD0iMCIgeT0iLTIxIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiLz48ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzQ5OF81MTQ0MyIgc3RkRGV2aWF0aW9uPSIxMDAiLz48L2ZpbHRlcj48L2RlZnM+PC9zdmc+') no-repeat center 0;
       background-size: 150% auto;
       @include media-breakpoint-up(sm) {
         width: 100vw;

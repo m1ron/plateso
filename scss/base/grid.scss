@@ -13,10 +13,14 @@
 .container-md,
 .container-sm {
   width: 100%;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 25px;
+  padding-left: 25px;
   margin-right: auto;
   margin-left: auto;
+  @include media-breakpoint-up(md) {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
 }
 
 @include media-breakpoint-up(sm) {
@@ -47,16 +51,24 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -14px;
-  margin-left: -14px;
+  margin-right: -25px;
+  margin-left: -25px;
+  @include media-breakpoint-up(md) {
+    margin-right: -14px;
+    margin-left: -14px;
+  }
 }
 .row > * {
   box-sizing: border-box;
   flex-shrink: 0;
   width: 100%;
   max-width: 100%;
-  padding-right: 14px;
-  padding-left: 14px;
+  padding-right: 25px;
+  padding-left: 25px;
+  @include media-breakpoint-up(md) {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
 }
 
 .text-start {text-align: left;}

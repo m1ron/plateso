@@ -10,9 +10,9 @@
     @include pseudo;
     position: absolute;
     top: 0;
-    right: -14px;
+    right: -25px;
     bottom: 0;
-    left: -14px;
+    left: -25px;
     @include media-breakpoint-up(xss) {
       width: 100vw;
       right: 0;
@@ -46,7 +46,7 @@
   }
 
   &__content {
-    padding: 50px 11px 25px;
+    padding: 50px 0 25px;
     font-weight: 600;
     position: relative;
     z-index: 3;

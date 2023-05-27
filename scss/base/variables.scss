@@ -14,7 +14,8 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1400px
+  xxl: 1400px,
+  xxxl: 1600px
 ) !default;
 
 // Paths
@@ -31,6 +32,7 @@ $color-black: #363636;
 $color-olive: #3a3a3a;
 $color-yellow: #ec8f39;
 $color-blue: #1789d8;
+$color-sky: #ddf0fd;
 
 $color-blueish: #aeb4bd;
 $color-red: #f00;

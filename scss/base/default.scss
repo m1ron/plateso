@@ -33,8 +33,6 @@ body {
 a {
   color: $color-yellow;
   text-decoration: underline;
-  text-decoration-thickness: .0625em;
-  text-underline-offset: .167em;
   &:hover, &:focus {text-decoration: none;}
 }
 
