@@ -30,6 +30,7 @@
     }
     @include media-breakpoint-up(xl) {
       background-size: 722px auto;
+      background-position: 33% 9px;
     }
   }
   &::after {
@@ -37,7 +38,7 @@
     background: $color-black;
   }
 
-  >.row {
+  > .row {
     @include media-breakpoint-up(lg) {
       flex-direction: row-reverse;
       align-items: flex-end;
@@ -53,10 +54,13 @@
       padding: 40px 0;
     }
     @include media-breakpoint-up(lg) {
-      padding: 90px 0 80px;
+      padding: 60px 0;
     }
     @include media-breakpoint-up(xl) {
-      left: -30px;
+      padding: 90px 0 80px;
+    }
+    @include media-breakpoint-up(xxl) {
+      left: -26px;
     }
 
     p:last-child {margin-bottom: 0;}
@@ -71,21 +75,24 @@
     @include media-breakpoint-up(sm) {
       left: 0;
     }
-    @include media-breakpoint-up(xl) {
-      left: -22px;
+    @include media-breakpoint-up(xxl) {
+      left: -18px;
     }
 
     img {
       width: auto;
-      height: 272px;
+      height: 246px;
       margin: 0 auto;
       display: block;
       @include user-select;
+      @include media-breakpoint-up(xss) {
+        height: 272px;
+      }
       @include media-breakpoint-up(sm) {
         height: 300px;
       }
       @include media-breakpoint-up(md) {
-        height: 350px;
+        height: 320px;
       }
       @include media-breakpoint-up(xl) {
         width: 410px;
