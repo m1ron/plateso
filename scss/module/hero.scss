@@ -10,9 +10,9 @@
     @include pseudo;
     position: absolute;
     top: 0;
-    right: -25px;
+    right: -14px;
     bottom: 0;
-    left: -25px;
+    left: -14px;
     z-index: -2;
     background: $color-blue no-repeat center left;
     background-size: contain;
@@ -105,9 +105,13 @@
 
   &__image {
     padding: 0;
-    margin: 0 -25px;
+    margin: 0 -14px;
     position: relative;
     z-index: 3;
+    @include media-breakpoint-up(xss) {
+      margin-right: -25px;
+      margin-left: -25px;
+    }
     @include media-breakpoint-up(lg) {
       position: static;
     }

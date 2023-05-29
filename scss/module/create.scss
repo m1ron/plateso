@@ -2,7 +2,7 @@
    CREATE
    ========================================================================== */
 .create {
-  padding: 50px 0 60px;
+  padding: 50px 0;
   position: relative;
   z-index: 1;
   @include media-breakpoint-up(xl) {
@@ -20,9 +20,9 @@
     @include pseudo;
     position: absolute;
     top: 0;
-    right: -25px;
+    right: -14px;
     bottom: 0;
-    left: -25px;
+    left: -14px;
     @include media-breakpoint-up(xss) {
       width: 100vw;
       right: 0;
@@ -102,7 +102,6 @@
     @include media-breakpoint-up(md) {
       margin-right: 0;
       margin-left: 0;
-      box-shadow: 0 0 0 14px rgba(white, .2);
     }
     @include media-breakpoint-up(xl) {
       max-width: 448px;
@@ -115,7 +114,7 @@
       left: -2px;
     }
 
-    h4 {
+    .h4 {
       margin-bottom: 20px;
       text-align: center;
       @include media-breakpoint-down(md) {

@@ -10,9 +10,9 @@
     @include pseudo;
     position: absolute;
     top: 0;
-    right: -25px;
+    right: -14px;
     bottom: 0;
-    left: -25px;
+    left: -14px;
     @include media-breakpoint-up(xss) {
       width: 100vw;
       right: 0;
@@ -39,6 +39,7 @@
   }
 
   > .row {
+    justify-content: center;
     @include media-breakpoint-up(lg) {
       flex-direction: row-reverse;
       align-items: flex-end;

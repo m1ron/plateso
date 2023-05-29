@@ -5,7 +5,7 @@
   padding: 50px 0 28px;
   position: relative;
   z-index: 1;
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(xl) {
     padding-top: 66px;
     padding-bottom: 38px;
   }
@@ -14,9 +14,9 @@
     @include pseudo;
     position: absolute;
     top: 0;
-    right: -25px;
+    right: -14px;
     bottom: 0;
-    left: -25px;
+    left: -14px;
     z-index: -1;
     background: $color-sky;
     @include media-breakpoint-up(xss) {
@@ -53,7 +53,7 @@
     }
     @include media-breakpoint-up(xl) {
       min-height: 166px;
-      padding: 31px 115px 28px 65px;
+      padding: 31px 70px 28px 65px;
       font-size: 14px;
       line-height: 22px;
     }
@@ -82,6 +82,11 @@
       @include media-breakpoint-up(xl) {
         font-size: 24px;
         line-height: 32px;
+      }
+
+      strong {
+        font-weight: inherit;
+        text-transform: uppercase;
       }
     }
 
