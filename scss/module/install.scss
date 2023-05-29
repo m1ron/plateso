@@ -63,6 +63,7 @@
       margin: 0 auto;
     }
     @include media-breakpoint-up(xxl) {
+      padding-top: 55px;
       left: -60px;
     }
     @include media-breakpoint-up(xxxl) {
@@ -113,6 +114,7 @@
     @include media-breakpoint-up(xl) {
       width: 50vw;
       padding-top: 87px;
+      padding-bottom: 4px;
       margin: 0;
       left: auto;
       right: -14px;
