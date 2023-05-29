@@ -1,0 +1,113 @@
+/* ==========================================================================
+   GALLERY
+   ========================================================================== */
+.gallery {
+  padding: 50px 0;
+  position: relative;
+  z-index: 1;
+  @include media-breakpoint-up(md) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @include media-breakpoint-up(xl) {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  > .row {
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  &::before, &::after {
+    @include pseudo;
+    position: absolute;
+    top: 0;
+    right: -14px;
+    bottom: 0;
+    left: -14px;
+    @include media-breakpoint-up(xss) {
+      width: 100vw;
+      right: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &::before {
+    z-index: -1;
+    background: url('#{$img}/bg.svg') repeat top center;
+    background-size: 390px auto;
+    opacity: .075;
+    filter: brightness(-100%);
+    @include media-breakpoint-up(md) {
+      background-size: 500px auto;
+    }
+    @include media-breakpoint-up(xl) {
+      background-size: 722px auto;
+      background-position: 33% 9px;
+    }
+  }
+  &::after {
+    z-index: -2;
+    background: $color-blue;
+  }
+
+  &__content {
+    margin: 0 auto 40px;
+    font-weight: 600;
+    color: white;
+    position: relative;
+    z-index: 1;
+    @include media-breakpoint-up(xl) {
+      max-width: 865px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      text-align: center;
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 30px;
+      }
+    }
+
+    strong, b {
+      font-weight: 800;
+    }
+
+    a {color: white;}
+
+    p:last-child {margin-bottom: 0;}
+  }
+
+  &__row {
+    margin-right: -10px;
+    margin-left: -10px;
+    > .col {
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+  }
+
+  &__item {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 0 0 20px;
+    background: white;
+    @include media-breakpoint-up(xl) {
+      padding: 42px 44px;
+    }
+
+    &.wide {
+      padding: 0;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
+      @include user-select;
+    }
+  }
+}

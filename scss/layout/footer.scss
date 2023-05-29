@@ -46,9 +46,6 @@
         line-height: 22px;
       }
     }
-    @include media-breakpoint-up(xxxl) {
-      margin-right: 4px;
-    }
 
     li + li {
       @include media-breakpoint-up(md) {
@@ -70,9 +67,6 @@
     @include media-breakpoint-up(lg) {
       font-size: 14px;
       line-height: 22px;
-    }
-    @include media-breakpoint-up(xxxl) {
-      margin-left: -5px;
     }
   }
 }
