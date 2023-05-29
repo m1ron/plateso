@@ -2,7 +2,7 @@
    CARDS
    ========================================================================== */
 .cards {
-  padding: 50px 0 30px;
+  padding: 50px 0 28px;
   position: relative;
   z-index: 1;
   @include media-breakpoint-up(md) {
@@ -35,20 +35,19 @@
   }
 
   .card {
+    max-width: 400px;
     min-height: 216px;
     padding: 67px 25px 35px 20px;
     border-radius: 8px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
     font-size: 12px;
     line-height: 18px;
     font-weight: 500;
     background: white;
-    @include media-breakpoint-up(xss) {
-      margin-right: 0;
-      margin-left: 0;
-    }
     @include media-breakpoint-up(md) {
+      max-width: none;
       min-height: 100%;
       margin-bottom: 0;
     }

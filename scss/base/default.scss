@@ -33,6 +33,8 @@ body {
 a {
   color: $color-yellow;
   text-decoration: underline;
+  text-decoration-thickness: .0625em;
+  text-underline-offset: .167em;
   &:hover, &:focus {text-decoration: none;}
 }
 
@@ -51,10 +53,49 @@ p {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 1em;
+  margin: 0 0 1em;
   font-family: $font-default;
   font-weight: bold;
+}
+h1, .h1 {
+  font-size: 28px;
+  line-height: 38px;
+  @include media-breakpoint-up(xss) {
+    font-size: 34px;
+    line-height: 44px;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: 40px;
+    line-height: 50px;
+  }
   @include media-breakpoint-up(xl) {
-    margin-bottom: 1.225em;
+    font-size: 50px;
+    line-height: 60px;
+  }
+  @include media-breakpoint-up(xxl) {
+    font-size: 60px;
+    line-height: 72px;
+  }
+}
+h2, .h2 {
+  font-size: 24px;
+  line-height: 32px;
+  @include media-breakpoint-up(md) {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  @include media-breakpoint-up(xl) {
+    font-size: 45px;
+    line-height: 58px;
+  }
+}
+h4, .h4 {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: .0025em;
+  @include media-breakpoint-up(xl) {
+    font-size: 24px;
+    line-height: 32px;
   }
 }

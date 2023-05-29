@@ -85,28 +85,17 @@
 
   h1 {
     margin: 0 -10px;
-    font-size: 28px;
-    line-height: 38px;
-    @include media-breakpoint-up(xss) {
+    @include media-breakpoint-down(xss) {
+      font-size: 28px;
+      line-height: 38px;
+    }
+    @include media-breakpoint-up(xsl) {
       max-width: 420px;
       margin: 0 auto;
-      font-size: 34px;
-      line-height: 44px;
-    }
-    @include media-breakpoint-up(md) {
-      font-size: 40px;
-      line-height: 50px;
     }
     @include media-breakpoint-up(xl) {
       max-width: none;
-      font-size: 50px;
-      line-height: 60px;
     }
-    @include media-breakpoint-up(xxl) {
-      font-size: 60px;
-      line-height: 72px;
-    }
-
 
     span {
       color: #77ff81;

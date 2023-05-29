@@ -22,7 +22,7 @@
   }
   &::before {
     z-index: -1;
-    background: $color-black url('#{$img}/welcome.svg') repeat top center;
+    background: $color-black url('#{$img}/bg.svg') repeat top center;
     background-size: 390px auto;
     opacity: .075;
     @include media-breakpoint-up(md) {
