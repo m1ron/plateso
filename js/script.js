@@ -1,62 +1,139 @@
-document.addEventListener('DOMContentLoaded', function (event) {
-  initForms();
-  initCountdown();
-  initGallery();
+jQuery(document).ready(function ($) {
+  initGenerator();
+  initEmail();
 });
 
-function initForms() {
-  document.querySelectorAll('.validate').forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
+function initGenerator() {
+  $('.generator').each(function () {
+
+    function generate() {
+
+      const DEFAULT_VENDOR = 'protetox';
+
+      let link = '', url_params = {}, vendor = DEFAULT_VENDOR;
+
+      // my_id
+      let my_id = $('#myid', form).val() || 'yourid';
+
+      // track_id
+      let track_id = $('#trackid', form).val();
+      if (track_id) {
+        url_params.tid = escape(track_id);
       }
-      form.classList.add('was-validated')
-    }, false)
-  })
-}
 
-function initGallery() {
-  var gallery = document.querySelector('.gallery');
-  if (gallery) {
-    var big = gallery.querySelector('.gallery-big');
-    gallery.querySelectorAll('.gallery-small-item').forEach(item => {
-      item.addEventListener('click', event => {
-        event.preventDefault();
-        document.querySelector('.gallery-small-item.active').classList.remove('active');
-        item.classList.add('active');
-        big.dataset.number = item.dataset.number;
-      }, false)
-    })
-  }
-}
+      // landing
+      let landing = $('#landing', form).val();
+      if (landing === 'vslpage') {
+        url_params.lpg = 1;
+      } else if (landing === 'textpage') {
+        url_params.lpg = "txt";
+      } else if (landing === 'newpage') {
+        url_params.lpg = 1;
+        url_params.ver = 2;
+      }
 
-function initCountdown() {
-  var countdown = document.querySelector('.countdown');
+      // autoplay
+      if ($('#autoplay', form).val() === 'no') {
+        url_params.ap = 1;
+      }
 
-  if (countdown) {
-    var d = new Date(),
-      start = d.getTime(),
-      time = 599;
+      // exitpopup
+      if ($('#exitpopup', form).val() === 'yes') {
+        url_params.ep = 1;
+      }
 
-    var min = countdown.querySelector('.minutes'),
-      sec = countdown.querySelector('.seconds');
+      // headline
+      if ($('#headline', form).val() === 'no') {
+        url_params.ttl = 'no';
+      }
 
-    const intervalID = setInterval(function () {
-      d = new Date();
-      var timeleft = time - Math.floor((d.getTime() - start) / 1000);
-      var mins = parseInt(timeleft / 60);
-      mins = ('0' + mins).slice(-2);
-      var secs = parseInt(timeleft % 60);
-      secs = ('0' + secs).slice(-2);
-      if (timeleft > 0) {
-        min.innerHTML = '<span>' + mins[0] + '</span><span>' + mins[1] + '</span>';
-        sec.innerHTML = '<span>' + secs[0] + '</span><span>' + secs[1] + '</span>';
+      // references
+      if ($('#references', form).val() === 'yes') {
+        url_params.rf = 1;
+      }
+
+      // controls
+      if ($('#controls', form).val() === 'yes') {
+        url_params.vc = 1;
+      }
+
+      // advertisement
+      if ($('#advertisement', form).val() === 'yes') {
+        url_params.ad = 1;
+      }
+
+      var la = [];
+      $.each(url_params, function (key, val) {
+        if (val !== undefined && val !== '') {
+          la.push(key + '=' + val);
+        }
+      });
+
+      link = 'https://hop.clickbank.net/?affiliate=' + escape(my_id) + '&vendor=' + vendor;
+      if (la.length !== 0) {
+        link += "&" + la.join('&');
+      }
+
+      $('.form-result', form).text(link);
+      $('.form-results',form).removeClass('hidden');
+    }
+
+    var form = $(this);
+
+    $('.form-more', form).click(function () {
+      let more = $('#more');
+      if (more.hasClass('hidden')) {
+        more.removeClass('hidden');
+        $('span', this).text('Hide');
       } else {
-        min.innerHTML = '<span>0</span><span>0</span>';
-        sec.innerHTML = '<span>0</span><span>0</span>';
-        clearInterval(intervalID);
+        more.addClass('hidden');
+        $('span', this).text('Show');
       }
-    }, 1000);
+      return false;
+    });
+
+    $('.form-copy', form).click(function (event) {
+      event.preventDefault();
+      let text = $('.form-result', form).html();
+      text = htmlDecode(text);
+      copyContent(text);
+    });
+
+    form.submit(function (event) {
+      event.preventDefault();
+
+      if (!$('#agree', form).is(':checked')) {
+        alert('You must first check the box that you have read and that you agree to all of our affiliate terms.');
+        return;
+      }
+
+      generate();
+
+      $("#generated-section").slideDown(500);
+    });
+  });
+}
+
+function initEmail() {
+  $('.emails .email').each(function () {
+    let text = $('.email__content', this).html().replace(/[<]br[^>]*[>]/gi, '');
+    $('.email__copy', this).click(function (event) {
+      event.preventDefault();
+      copyContent(text);
+    });
+  });
+}
+
+const copyContent = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text);
+    console.log('Content copied to clipboard');
+  } catch (err) {
+    console.error('Failed to copy: ', err);
   }
+}
+
+function htmlDecode(input) {
+  var doc = new DOMParser().parseFromString(input, "text/html");
+  return doc.documentElement.textContent;
 }

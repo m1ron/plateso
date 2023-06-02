@@ -14,6 +14,7 @@
 
 	<link href="css/style.css" rel="stylesheet">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
 	<script src="js/script.js" defer></script>
 </head>
 
@@ -109,13 +110,13 @@
 					<div class="col col-12 col-md-6 col-lg-7 col-xl-5">
 						<section class="create__content">
 							<h2>Create Your <br>Affiliate Links</h2>
-							<p>To start promoting Plateso you first need to register an account with Clickbank. If you don't already have one you <b><a href="#">should sign up here</a></b>. <br>It's very easy and wont<sup>&trade;</sup> take more than 30 seconds.</p>
+							<p>To start promoting Plateso you first need to register an account with Clickbank. If you don't already have one you <b><a href="https://accounts.clickbank.com/master/create-account" target="_blank">should sign up here</a></b>. <br>It's very easy and wont<sup>&trade;</sup> take more than 30 seconds.</p>
 							<p>Once you have opened your Clickbank account you can simply use our hoplink generator tool to generate your unique secure tracking link.</p>
-							<p>To upgrade your commission to our top tier of 85% you just need to go <b><a href="#">here</a></b> and fill out our quick form.</p>
+							<p>To upgrade your commission to our top tier of 85% you just need to go <b><a href="https://support.clickbank.com/hc/en-us/articles/220375827" target="_blank">here</a></b> and fill out our quick form.</p>
 						</section>
 					</div>
 					<div class="col col-12 col-md-6 col-lg-5">
-						<form class="create__form" action="#" method="get" autocomplete="off">
+						<form class="generator" action="#" method="get" autocomplete="off">
 							<div class="row">
 								<div class="col col-12">
 									<p class="h4">Hoplink Generator:</p>
@@ -124,16 +125,16 @@
 							<div class="row">
 								<div class="col col-12">
 									<div class="form-group">
-										<label for="affiliate" class="form-label">Your Affiliate ID</label>
-										<input type="text" class="form-control" id="affiliate" name="affiliate" maxlength="50" value="" required>
+										<label for="myid" class="form-label">Your Affiliate ID</label>
+										<input type="text" class="form-control generatorInput" id="myid" name="myid" maxlength="50" value="">
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col col-12">
 									<div class="form-group">
-										<label for="tracking" class="form-label">Tracking ID (Optional)</label>
-										<input type="text" class="form-control" id="tracking" name="tracking" maxlength="50" value="" required>
+										<label for="trackid" class="form-label">Tracking ID (Optional)</label>
+										<input type="text" class="form-control generatorInput" id="trackid" name="trackid" maxlength="50" value="">
 									</div>
 								</div>
 							</div>
@@ -142,36 +143,92 @@
 									<div class="form-group">
 										<label for="autoplay" class="form-label">Autoplay</label>
 										<select class="form-select" id="autoplay" name="autoplay">
-											<option selected>Default</option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
+											<option selected value="yes">Yes</option>
+											<option value="no">No</option>
 										</select>
 									</div>
 								</div>
 								<div class="col col-6">
 									<div class="form-group">
-										<label for="popup" class="form-label">Exit Popup</label>
-										<select class="form-select" id="popup" name="popup">
-											<option selected>Default</option>
-											<option value="1">One</option>
-											<option value="2">Two</option>
-											<option value="3">Three</option>
+										<label for="exitpopup" class="form-label">Exit Popup</label>
+										<select class="form-select" id="exitpopup" name="exitpopup">
+											<option selected value="no">No</option>
+											<option value="yes">Yes</option>
 										</select>
 									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col col-12">
-									<a href="#" class="form-more">+ Show Advanced Options</a>
+									<a href="#more" class="form-more">+ <span>Show</span> Advanced Options</a>
+								</div>
+							</div>
+							<div id="more" class="hidden">
+								<div class="row">
+									<div class="col col-12">
+										<p class="subtitle">Leave as default for best conversions. Only adjust these options if you understand them!</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-12">
+										<div class="form-group">
+											<label for="landing" class="form-label">Landing Page</label>
+											<select class="form-select" id="landing" name="landing">
+												<option selected value="newpage">** New VSL Page **</option>
+												<option value="vslpage">Original VSL Page</option>
+												<option value="textpage">Text Page</option>
+												<option value="homepage">Home Page</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-6">
+										<div class="form-group">
+											<label for="headline" class="form-label">Headline</label>
+											<select class="form-select" id="headline" name="headline">
+												<option selected value="yes">Yes</option>
+												<option value="no">No</option>
+											</select>
+										</div>
+									</div>
+									<div class="col col-6">
+										<div class="form-group">
+											<label for="references" class="form-label">References Link</label>
+											<select class="form-select" id="references" name="references">
+												<option selected value="no">No</option>
+												<option value="yes">Yes</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col col-6">
+										<div class="form-group">
+											<label for="controls" class="form-label">Video Controls</label>
+											<select class="form-select" id="controls" name="controls">
+												<option selected value="no">No</option>
+												<option value="yes">Yes</option>
+											</select>
+										</div>
+									</div>
+									<div class="col col-6">
+										<div class="form-group">
+											<label for="advertisement" class="form-label">Advertisement&nbsp;Header</label>
+											<select class="form-select" id="advertisement" name="advertisement">
+												<option selected value="no">No</option>
+												<option value="yes">Yes</option>
+											</select>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col col-12">
 									<div class="form-group">
 										<label class="form-check">
-											<input class="form-check-input" type="checkbox" value="" checked>
-											<span class="form-check-label">I have read the <a href="#">affiliate terms</a></span>
+											<input class="form-check-input" id="agree" name="agree" type="checkbox">
+											<span class="form-check-label">I have read the <a href="#terms">affiliate terms</a></span>
 										</label>
 									</div>
 								</div>
@@ -179,6 +236,12 @@
 							<div class="row form-row justify-content-center">
 								<div class="col col-12">
 									<button type="submit" class="btn form-submit">Generate Hoplink</button>
+								</div>
+							</div>
+							<div class="row col col-12">
+								<div class="form-results hidden">
+									<p class="form-result"></p>
+									<a href="#" class="form-copy">+ Copy to clipboard</a>
 								</div>
 							</div>
 						</form>
@@ -190,7 +253,7 @@
 				<div class="row">
 					<div class="col col-12 col-md-8 col-lg-5">
 						<div class="install__content">
-							<h2>Install Pixelst</h2>
+							<h2>Install Pixels</h2>
 							<p>You can now place your tracking pixels (such as Facebook, Yahoo, Google, Voluum and more) directly in your Clickbank account.</p>
 							<p>To get more information on how to use this service visit their page <a href="#">here</a></p>
 						</div>
@@ -457,7 +520,7 @@
 				</div>
 			</section>
 
-			<section class="terms">
+			<section class="terms" id="terms">
 				<div class="row justify-content-center">
 					<div class="col col-12 col-lg-10 col-xl-5">
 						<div class="terms__header">
@@ -496,7 +559,7 @@
 					<div class="col col-12 col-md-9 col-lg-7 col-xl-6">
 						<div class="contact__content">
 							<h2>Contact Us</h2>
-							<p>If you have any questions, please don't hesitate to contact us at <a href="mailto:affiliates@protetox.com">affiliates@protetox.com</a> we look forward to having you on board.</p>
+							<p>If you have any questions, please don't hesitate to contact us at <a href="mailto:affiliates@plateso.com">affiliates@plateso.com</a> we look forward to having you on board.</p>
 						</div>
 					</div>
 					<div class="col col-12">
@@ -515,9 +578,9 @@
 			<div class="row">
 				<div class="col col-12 col-md-6">
 					<ul class="nav">
-						<li><a href="#">Privacy</a></li>
-						<li><a href="#">Terms &amp; Conditions</a></li>
-						<li><a href="#">Contact</a></li>
+						<li><a href="https://plateso.com/version-test/privacy_policy" target="_blank">Privacy</a></li>
+						<li><a href="https://plateso.com/version-test/terms_conditions" target="_blank">Terms &amp; Conditions</a></li>
+						<li><a href="mailto:affiliates@plateso.com">Contact</a></li>
 					</ul>
 				</div>
 				<div class="col col-12 col-md-6">

@@ -90,7 +90,7 @@
     p:last-child {margin-bottom: 0;}
   }
 
-  &__form {
+  .generator {
     max-width: 400px;
     padding: 30px 20px;
     border-radius: 8px;
@@ -98,7 +98,6 @@
     position: relative;
     background: white;
     box-shadow: 0 0 0 10px rgba(white, .2);
-    cursor: default;
     @include media-breakpoint-up(md) {
       margin-right: 0;
       margin-left: 0;
@@ -141,8 +140,21 @@
       }
     }
 
+    .subtitle {
+      margin: 20px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
     .form-check {
+      margin-top: 12px;
       display: block;
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
     }
 
     .form-submit {
@@ -152,6 +164,42 @@
       @include media-breakpoint-up(xl) {
         margin-top: 0;
       }
+    }
+
+    .form-result {
+      margin: 20px -15px;
+      word-break: break-word;
+      font-size: 14px;
+      line-height: normal;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .form-copy {
+      padding: 14px;
+      border: 2px solid $color-black;
+      border-radius: 8px;
+      margin-bottom: 5px;
+      display: block;
+      color: $color-black;
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: 600;
+      text-transform: uppercase;
+      text-decoration: none;
+      text-align: center;
+      @include media-breakpoint-up(sm) {
+        padding-right: 28px;
+        padding-left: 28px;
+        float: right;
+      }
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 0;
+      }
+    }
+
+    .hidden {
+      display: none;
     }
   }
 }
